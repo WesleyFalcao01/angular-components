@@ -1,0 +1,104 @@
+.div-component-container {
+
+    position: relative;
+
+    .div-container-options {
+        display: grid;
+        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+
+        .div-container-itens{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .div-options {
+            background-color: white;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            border-radius: 0.2rem;
+            border: 5px gray;
+            width: 17.5rem;
+
+            @media (min-width: 768px) {
+                width: 17rem;
+            }
+
+            &:hover {
+                transition: 300ms;
+                background-color: rgb(224, 233, 233);
+            }
+
+            &:active {
+                transition: 200ms;
+                transform: scale(0.92);
+            }
+        }
+
+        .div-iten {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            justify-content: center;
+            position: relative;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.28);
+            color: rgb(63, 61, 61);
+            padding: 0.5rem;
+            height: 3rem;
+            width: 100%;
+
+            p {
+                max-width: 12rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .img {
+                position: relative;
+                width: 1.3rem;
+            }
+        }
+    }
+
+    .click-item-focus {
+        background-color: rgb(209, 206, 206);
+    }
+
+    .canvas-margin-top{
+        margin-top: 4rem;
+    }
+
+    .canvas-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        position: relative;
+        display: flex;
+        canvas {
+            display: block;
+            background-color: white;
+        }
+    }
+}
+
+.container-buttons {
+    display: flex;
+    position: absolute;
+    right: -3.7rem;
+    top: 0rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: end;
+}
+
+.click-buttom-grid-focus {
+    background-color: var(--verde-unimed);
+}

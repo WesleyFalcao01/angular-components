@@ -1,0 +1,42 @@
+<div class="div-component-container" [ngStyle]="{'max-width': nr_Max_Width_Container + 'px'}">
+    <div class="div-container-options">
+        <div class="div-container-itens">
+            <div title="{{iten.nm_Option}}" class="div-options"
+                [ngStyle]="{ 'border-left': '0.5rem solid ' + iten.nm_Hash_Color }"
+                *ngFor="let iten of objArray_Options, let index = index">
+                <div class="div-iten" [ngClass]="{'click-item-focus': iten.b_Selected}"
+                    (click)="onClick_Type_Line(iten)">
+                    <p>{{iten.nm_Option}}</p>
+                    <img class="img" src="{{iten.nm_Path_SVG}}" alt="cursor-mouse">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="position: relative;">
+        <div class="canvas-container" [ngClass]="{'canvas-margin-top': objArray_Options.length == 0}">
+            <div>
+                <canvas #canvasEl></canvas>
+                <div class="modal" [ngStyle]="Modal_Cursor_Style">
+                    <p>Valor: {{ nr_Value_Line_Modal }}</p>
+                    <p>Tempo: {{ nr_Value_Column_Modal }}</p>
+                </div>  
+            </div>
+        </div>
+        <div>
+            <div class="container-buttons">
+                <button class="button-canvas" title="Adicionar linhas horizontais"
+                    [ngClass]="{'click-buttom-grid-focus': b_Show_Lines_Axis_X}" (click)="onClick_Draw_Grid_Line_X()">
+                    <img src="assets/icons/{{b_Show_Lines_Axis_X? 'grid-white': 'grid'}}.svg">
+                </button>
+                <button class="button-canvas" title="Desfazer a última marcação" (click)="Set_Undo_Last_Point()">
+                    <img src="assets/icons/undo.svg">
+                </button>
+                <button class="button-canvas" title="Adicionar mais tempo" (click)="Set_Add_Value_Axis_X()">
+                    <img src="assets/icons/more-time.svg">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<snackbar #snackbar></snackbar>
